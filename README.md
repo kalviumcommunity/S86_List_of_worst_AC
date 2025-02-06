@@ -3,6 +3,7 @@
 ## **Project Title:** **List of Worst Air Conditioners Ranked**  
 
 ## **Project Overview:**
+## **Milestone 1**
 This project creates a **list of the top 5 worst air conditioners** based on user reviews, energy efficiency, noise levels, and durability concerns. The goal is to help consumers avoid low-quality AC models by analyzing poor-rated products and offering alternative recommendations.
 
 ## **Features:**
