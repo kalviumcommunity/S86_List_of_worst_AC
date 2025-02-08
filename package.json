@@ -1,0 +1,20 @@
+{
+  "name": "sindhuja_squad-86_asap_m2",
+  "version": "1.0.0",
+  "description": "## **Project Title:** **List of Worst Air Conditioners Ranked**",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kalviumcommunity/S86_List_of_worst_AC.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kalviumcommunity/S86_List_of_worst_AC/issues"
+  },
+  "homepage": "https://github.com/kalviumcommunity/S86_List_of_worst_AC#readme"
+}
