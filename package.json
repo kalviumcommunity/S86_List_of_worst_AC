@@ -1,7 +1,9 @@
 {
   "name": "sindhuja_squad-86_asap_m2",
   "version": "1.0.0",
+
   "description": "This project creates a **list of the top 5 worst air conditioners** based on user reviews, energy efficiency, noise levels, and durability concerns. The goal is to help consumers avoid low-quality AC models by analyzing poor-rated products and offering alternative recommendations.",
+  "description": "## **Project Title:** **List of Worst Air Conditioners Ranked**",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -16,8 +18,11 @@
   "bugs": {
     "url": "https://github.com/kalviumcommunity/S86_List_of_worst_AC/issues"
   },
+
   "homepage": "https://github.com/kalviumcommunity/S86_List_of_worst_AC#readme",
   "dependencies": {
     "express": "^4.21.2"
   }
+  "homepage": "https://github.com/kalviumcommunity/S86_List_of_worst_AC#readme"
+
 }
