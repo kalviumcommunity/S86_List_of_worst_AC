@@ -6,6 +6,12 @@
 ## **Milestone 1**
 This project creates a **list of the top 5 worst air conditioners** based on user reviews, energy efficiency, noise levels, and durability concerns. The goal is to help consumers avoid low-quality AC models by analyzing poor-rated products and offering alternative recommendations.
 
+## **Milestone 2**
+Installing express server packages
+
+## **Milestone 3**
+deploye the server side
+delpyed link: https://s86-list-of-worst-ac-3.onrender.com
 ## **Features:**
 ✅ **AC Ranking List** – Displays the worst-rated ACs with key issues.  
 ✅ **Comparison Tool** – Allows users to compare AC models side by side.  
