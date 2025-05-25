@@ -1,11 +1,19 @@
-const express = require("express");
+const express = require('express');
+const dotenv = require('dotenv');
+const connectDB = require('./db');
+const authRoutes = require('./routes/auth');
+
+dotenv.config();
 const app = express();
-const PORT = process.env.PORT || 3000;
+app.use(express.json());
 
-app.get("/ping", (req, res) => {
-    res.send("pong");
+connectDB();
+
+app.get('/ping', (req, res) => {
+  res.json({ message: 'API is working!' });
 });
 
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-});
+app.use('/api/auth', authRoutes);
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
