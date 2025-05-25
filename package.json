@@ -18,6 +18,10 @@
   },
   "homepage": "https://github.com/kalviumcommunity/S86_List_of_worst_AC#readme",
   "dependencies": {
-    "express": "^4.21.2"
+    "bcryptjs": "^3.0.2",
+    "dotenv": "^16.5.0",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.15.0"
   }
 }
