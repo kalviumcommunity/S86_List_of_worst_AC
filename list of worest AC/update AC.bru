@@ -1,0 +1,22 @@
+meta {
+  name: update AC
+  type: http
+  seq: 5
+}
+
+put {
+  url: http://localhost:5000/api/acs/683943e1390d5b28ed8d7c9b
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "brand": "NoCool",
+    "model": "N-404 v2",
+    "efficiency": 1.8,
+    "noiseLevel": 88,
+    "durability": 1.5,
+    "complaints": ["Noise improved", "Still remote issues"]
+  }
+}

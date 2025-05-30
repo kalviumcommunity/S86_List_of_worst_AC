@@ -1,0 +1,176 @@
+{
+  "name": "list of worest AC",
+  "version": "1",
+  "items": [
+    {
+      "type": "http",
+      "name": "GET All ACs",
+      "filename": "GET All ACs.bru",
+      "seq": 1,
+      "request": {
+        "url": "http://localhost:5000/api/acs",
+        "method": "GET",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "none",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "Get AC By ID",
+      "filename": "Get AC By ID.bru",
+      "seq": 2,
+      "request": {
+        "url": "http://localhost:5000/api/acs/6837f5270d50958d913efd39",
+        "method": "GET",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "none",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "create AC",
+      "filename": "create AC.bru",
+      "seq": 3,
+      "request": {
+        "url": "http://localhost:5000/api/acs",
+        "method": "POST",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "json",
+          "json": "{\n  \"brand\": \"NoCool\",\n  \"model\": \"N-404\",\n  \"efficiency\": 1.2,\n  \"noiseLevel\": 95,\n  \"durability\": 1.0,\n  \"complaints\": [\"Extremely noisy\", \"Stops after 30 mins\", \"Remote doesn't work\"]\n}",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "create ac by id",
+      "filename": "create ac by id.bru",
+      "seq": 4,
+      "request": {
+        "url": "http://localhost:5000/api/acs/683943e1390d5b28ed8d7c9b",
+        "method": "GET",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "none",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "update AC",
+      "filename": "update AC.bru",
+      "seq": 5,
+      "request": {
+        "url": "http://localhost:5000/api/acs/683943e1390d5b28ed8d7c9b",
+        "method": "PUT",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "json",
+          "json": "{\n  \"brand\": \"NoCool\",\n  \"model\": \"N-404 v2\",\n  \"efficiency\": 1.8,\n  \"noiseLevel\": 88,\n  \"durability\": 1.5,\n  \"complaints\": [\"Noise improved\", \"Still remote issues\"]\n}",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "deleteAC",
+      "filename": "deleteAC.bru",
+      "seq": 6,
+      "request": {
+        "url": "http://localhost:5000/api/acs/683943e1390d5b28ed8d7c9b",
+        "method": "DELETE",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "none",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    }
+  ],
+  "environments": [],
+  "brunoConfig": {
+    "version": "1",
+    "name": "list of worest AC",
+    "type": "collection",
+    "ignore": [
+      "node_modules",
+      ".git"
+    ],
+    "size": 0,
+    "filesCount": 0
+  }
+}
