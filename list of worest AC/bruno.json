@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "list of worest AC",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

@@ -1,0 +1,22 @@
+meta {
+  name: create AC
+  type: http
+  seq: 3
+}
+
+post {
+  url: http://localhost:5000/api/acs
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "brand": "NoCool",
+    "model": "N-404",
+    "efficiency": 1.2,
+    "noiseLevel": 95,
+    "durability": 1.0,
+    "complaints": ["Extremely noisy", "Stops after 30 mins", "Remote doesn't work"]
+  }
+}
