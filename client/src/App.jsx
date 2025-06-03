@@ -1,13 +1,13 @@
-// src/App.jsx
-import { BrowserRouter } from "react-router-dom";
-import AppRoutes from "./Routes.jsx";
-import './App.css';
+// App.jsx
+import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import AppRoutes from './Routes'; // adjust the path if needed
 
 function App() {
   return (
-    <BrowserRouter>
+    <Router>
       <AppRoutes />
-    </BrowserRouter>
+    </Router>
   );
 }
 
