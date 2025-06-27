@@ -1,42 +1,64 @@
 import React, { useEffect, useState } from 'react';
-import { getACs, addAC, deleteAC } from '../api/ac';
-import { Link } from 'react-router-dom';
+import { getACs, deleteAC } from '../api/ac';
+import { useNavigate } from 'react-router-dom';
 
-const ACList = () => {
+export default function ACList() {
   const [acs, setAcs] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchAcs = async () => {
       try {
-        const res = await axios.get('/acs');
+        const res = await getACs();
+        console.log('Fetched ACs:', res.data);
         setAcs(res.data);
       } catch (err) {
-        console.error(err);
+        console.error('Error fetching ACs:', err);
       }
     };
-
     fetchAcs();
   }, []);
 
+  const handleDelete = async (id) => {
+    if (!window.confirm('Delete this AC?')) return;
+    console.log('Deleting AC id:', id);
+    try {
+      await deleteAC(id);
+      setAcs((prev) => prev.filter((ac) => ac._id !== id));
+    } catch (err) {
+      console.error('Delete failed:', err);
+      alert('Failed to delete AC');
+    }
+  };
+
   return (
-    <div className="p-4">
-      <h1 className="text-xl font-bold mb-4">List of Worst ACs</h1>
+    <div className="p-6">
+      <h1 className="text-2xl font-bold mb-4">Worst ACs</h1>
+      {acs.length === 0 && <p>No ACs found.</p>}
       <ul className="space-y-2">
         {acs.map((ac) => (
-          <li key={ac._id} className="p-4 border rounded flex justify-between items-center">
+          <li key={ac._id} className="p-4 bg-white rounded shadow flex justify-between">
             <div>
-              <p><strong>Brand:</strong> {ac.brand}</p>
-              <p><strong>Capacity:</strong> {ac.capacity}</p>
-              <p><strong>Noise Level:</strong> {ac.noiseLevel}</p>
-              <p><strong>Efficiency:</strong> {ac.efficiency}</p>
-              <p><strong>Durability:</strong> {ac.durability}</p>
+              <p><strong>{ac.brand}</strong> — {ac.model}</p>
+              <p>Eff: {ac.efficiency}, Noise: {ac.noiseLevel}, Dur: {ac.durability}</p>
             </div>
-            <Link to={`/edit-ac/${ac._id}`} className="bg-yellow-500 text-white px-3 py-1 rounded">Edit</Link>
+            <div className="space-x-2">
+              <button
+                onClick={() => navigate(`/edit-ac/${ac._id}`)}
+                className="text-blue-600 hover:underline"
+              >
+                Edit
+              </button>
+              <button
+                onClick={() => handleDelete(ac._id)}
+                className="text-red-600 hover:underline"
+              >
+                Delete
+              </button>
+            </div>
           </li>
         ))}
       </ul>
     </div>
   );
-};
-
-export default ACList;
+}

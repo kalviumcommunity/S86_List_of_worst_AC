@@ -2,16 +2,17 @@ const Ac = require('../models/AC');
 
 // Create
 exports.createAc = async (req, res) => {
-
+  console.log("Incoming AC Data:", req.body); // 🪵 ADD THIS LINE
   try {
     const newAc = new Ac(req.body);
     const savedAc = await newAc.save();
     return res.status(201).json(savedAc);
   } catch (err) {
-    console.error('AC creation failed:', err.message);
+    console.error('AC creation failed:', err.message); // logs exact error
     return res.status(500).json({ error: err.message });
   }
 };
+
 
 
 // Read all

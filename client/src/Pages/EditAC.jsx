@@ -1,70 +1,73 @@
 import React, { useEffect, useState } from 'react';
-import axios from '../api/axios';
-import { useNavigate, useParams } from 'react-router-dom';
+import { getACById, updateAC } from '../api/ac';
+import { useParams, useNavigate } from 'react-router-dom';
 
-const EditAC = () => {
+export default function EditAC() {
   const { id } = useParams();
   const navigate = useNavigate();
-  const [formData, setFormData] = useState({
+  const [form, setForm] = useState({
     brand: '',
-    capacity: '',
-    noiseLevel: '',
+    model: '',
     efficiency: '',
-    durability: ''
+    noiseLevel: '',
+    durability: '',
   });
 
   useEffect(() => {
-    const fetchAC = async () => {
+    const load = async () => {
       try {
-        const res = await axios.get(`/acs/${id}`);
-        setFormData(res.data);
+        const res = await getACById(id);
+        console.log('Loaded AC:', res.data);
+        setForm(res.data);
       } catch (err) {
-        console.error(err);
-        alert('Failed to fetch AC');
+        console.error('Load failed:', err);
       }
     };
-
-    fetchAC();
+    load();
   }, [id]);
 
   const handleChange = (e) => {
-    setFormData(prev => ({
-      ...prev,
-      [e.target.name]: e.target.value
-    }));
+    setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log('Updating AC:', form);
     try {
-      await axios.put(`/acs/${id}`, formData);
+      await updateAC(id, {
+        brand: form.brand,
+        model: form.model,
+        efficiency: Number(form.efficiency),
+        noiseLevel: Number(form.noiseLevel),
+        durability: Number(form.durability),
+      });
       alert('AC updated!');
       navigate('/ac-list');
     } catch (err) {
-      console.error(err);
-      alert('Error updating AC');
+      console.error('Update failed:', err);
+      alert('Failed to update AC');
     }
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen">
-      <form onSubmit={handleSubmit} className="flex flex-col gap-2 w-[300px]">
-        {Object.keys(formData).map((key) => (
+    <div className="flex items-center justify-center min-h-screen bg-blue-50">
+      <form onSubmit={handleSubmit} className="bg-white p-6 rounded shadow-md w-full max-w-md">
+        <h2 className="text-2xl font-bold mb-4">Edit AC</h2>
+        {['brand','model','efficiency','noiseLevel','durability'].map((field) => (
           <input
-            key={key}
-            type="text"
-            name={key}
-            placeholder={key}
-            value={formData[key]}
+            key={field}
+            name={field}
+            value={form[field]}
             onChange={handleChange}
-            className="p-2 border border-gray-300 rounded"
+            placeholder={field}
+            className="w-full p-2 mb-3 border rounded"
             required
           />
         ))}
-        <button type="submit" className="bg-green-500 text-white py-2 rounded">Update AC</button>
+        <button type="submit" className="w-full bg-green-600 text-white py-2 rounded">
+          Save Changes
+        </button>
       </form>
     </div>
   );
-};
-
-export default EditAC;
+}
