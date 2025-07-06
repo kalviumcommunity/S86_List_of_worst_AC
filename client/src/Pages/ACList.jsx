@@ -33,7 +33,7 @@ export default function ACList() {
 
   return (
     <div className="p-6">
-      <h1 className="text-2xl font-bold mb-4">Worst ACs</h1>
+      <h1 className="ml-[10px] text-2xl font-bold mb-4">List of Worst ACs</h1>
       {acs.length === 0 && <p>No ACs found.</p>}
       <ul className="space-y-2">
         {acs.map((ac) => (
@@ -59,6 +59,12 @@ export default function ACList() {
           </li>
         ))}
       </ul>
+      <button
+          onClick={() => navigate('/add-ac')}
+          className="ml-[10px] bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
+        >
+          Add AC
+        </button>
     </div>
   );
 }
