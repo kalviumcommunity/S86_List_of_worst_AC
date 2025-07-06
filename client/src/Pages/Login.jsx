@@ -1,16 +1,19 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import { loginUser } from "../api/auth";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = async(e) => {
     e.preventDefault();
      try {
       const data = await loginUser({ email, password });
       console.log('Logged in:', data);
+      alert("Login successful!");
+      navigate("/ac-list"); 
     } catch (err) {
       console.error(err);
       alert('Login failed');
